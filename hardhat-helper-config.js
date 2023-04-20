@@ -6,6 +6,13 @@ const MIN_DEPLAY = 3600; // in seconds
 const PROPOSERS = [];
 const EXECUTORS = [];
 
+// These values used to create the encodedFunctionCall
+// That is we are calling store function in Box contract with value 100
+// So this proposal is for updating value in Box contract with new one.
+const FUNC_TO_CALL = "store";
+const ARGS = 100;
+const DESCRIPTION = "Proposal #1 - Update Box contract value by 100";
+
 module.exports = {
   VOTING_DELAY,
   VOTING_PERIOD,
@@ -13,4 +20,7 @@ module.exports = {
   MIN_DEPLAY,
   PROPOSERS,
   EXECUTORS,
+  FUNC_TO_CALL,
+  ARGS,
+  DESCRIPTION,
 };

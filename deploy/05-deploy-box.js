@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deployer } = await getNamedAccounts();
-  const { deploy, log } = deployments;
+  const { deploy, log, get } = deployments;
 
   log("Deploying Box contract");
 
@@ -12,10 +12,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log: true,
   });
 
-  log("Deployed Box Contract");
+  log(`Deployed Box Contract at : ${Box.address}`);
 
-  const TimeLock = await ethers.getContract("TimeLock", deployer);
-  const BoxContract = await ethers.getContractAt("Box", Box.address);
+  // const TimeLock = await ethers.getContract("TimeLock", deployer);
+  const TimeLock = await get("TimeLock");
+  const BoxContract = await ethers.getContract("Box");
+
   const tx = await BoxContract.transferOwnership(TimeLock.address);
   await tx.wait(1);
   log("Transfered ownership to TimeLock Contract");
