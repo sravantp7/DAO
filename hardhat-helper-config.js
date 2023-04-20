@@ -13,6 +13,9 @@ const FUNC_TO_CALL = "store";
 const ARGS = 100;
 const DESCRIPTION = "Proposal #1 - Update Box contract value by 100";
 
+const developmentChains = ["hardhat", "localhost"];
+const PROPOSAL_FILE = "proposals.json";
+
 module.exports = {
   VOTING_DELAY,
   VOTING_PERIOD,
@@ -23,4 +26,6 @@ module.exports = {
   FUNC_TO_CALL,
   ARGS,
   DESCRIPTION,
+  developmentChains,
+  PROPOSAL_FILE,
 };
