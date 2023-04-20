@@ -14,6 +14,14 @@ async function mineBlocks(count) {
   console.log(`Mined ${count} blocks`);
 }
 
+// Function used to move time forward (since MIN_DELAY time needed to pass inorder to execute the proposal)
+// and instead of block it uses seconds
+async function moveTime(amount) {
+  await network.provider.send("evm_increaseTime", [amount]);
+  console.log(`Moved ${amount} seconds`);
+}
+
 module.exports = {
   mineBlocks,
+  moveTime,
 };

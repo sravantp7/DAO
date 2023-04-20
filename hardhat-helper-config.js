@@ -1,5 +1,5 @@
 const VOTING_DELAY = 1; // 1 block
-const VOTING_PERIOD = 50400; // 1 week in blocks
+const VOTING_PERIOD = 5; // 1 week in blocks
 const QUORUM_PERCENTAGE = 4;
 
 const MIN_DEPLAY = 3600; // in seconds

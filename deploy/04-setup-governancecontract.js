@@ -14,10 +14,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const executorRole = await TimeLock.EXECUTOR_ROLE();
   const adminRole = await TimeLock.TIMELOCK_ADMIN_ROLE();
 
-  const proposerTx = await TimeLock.grantRole(
-    proposerRole,
-    GovernanceToken.address
-  );
+  const proposerTx = await TimeLock.grantRole(proposerRole, Governor.address);
   await proposerTx.wait(1);
 
   const executorTx = await TimeLock.grantRole(executorRole, ADDRESS_ZERO); // making sure that all participants can execute proposal
